@@ -6,12 +6,13 @@
   <tbody>
     <% @posts.each do |post| %>
       <tr>
-        <td><h3><%= post.title.titleize %></h3>
+        <td><h3><%= link_to post.title.titleize, post %></h3>
             <p><small><%= post.tags %></small></p>
             <p><%= post.body.truncate_words(25) %></p>
         <p><%= link_to 'Show', post, :class => 'button' %>
         <%= link_to 'Edit', edit_post_path(post), :class => 'button' %>
-        <%= link_to 'Destroy', post, :class => 'button', method: :delete, data: { confirm: 'Are you sure?' } %></p></td>
+        <%= link_to 'Destroy', post, :class => 'button', method: :delete, data: { confirm: 'Are you sure?' } %></p>
+      </td>
       </tr>
     <% end %>
   </tbody>
