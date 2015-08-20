@@ -14,6 +14,7 @@ class PostsController < ApplicationController
 
   # GET /posts/new
   def new
+    @posts = Post.order(:created_at => :desc).limit(2).all
     @post = Post.new
   end
 
